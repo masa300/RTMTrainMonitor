@@ -1,0 +1,2 @@
+# ScreenSampleMod
+Minecraft起動時にSwingとJavaFXのウィンドウを表示させるサンプルMODです。
