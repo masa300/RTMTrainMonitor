@@ -1,2 +1,2 @@
-# ScreenSampleMod
-Minecraft起動時にSwingとJavaFXのウィンドウを表示させるサンプルMODです。
+# RTMTrainMonitor
+RealTrainModと連動したグラスコックピットのウィンドウを表示するMODです。
