@@ -1,7 +1,11 @@
 package jp.masa.screensamplemod;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.relauncher.Side;
+import javafx.application.Application;
 
 @Mod(modid = ScreenSampleMod.MODID, name = ScreenSampleMod.MODNAME, version = ScreenSampleMod.VERSION)
 public class ScreenSampleMod {
@@ -11,6 +15,13 @@ public class ScreenSampleMod {
 
     @Mod.EventHandler
     public void init(FMLPostInitializationEvent event) {
-        new Thread(ScreenFX::run).start();
+        FMLCommonHandler.instance().bus().register(this);
+    }
+
+    @Mod.EventHandler
+    public void onFMLLoadComplete(FMLLoadCompleteEvent e) {
+        if (e.getSide() == Side.CLIENT) {
+            new Thread(() -> Application.launch(ScreenFX.class)).start();
+        }
     }
 }
